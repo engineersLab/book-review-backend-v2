@@ -1,0 +1,16 @@
+{
+  "development": {
+    "username": "root",
+    "password": "password",
+    "database": "book_review_v2",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "u225137133_booky_man",
+    "password": "Bookyman@2020",
+    "database": "u225137133_booky_man",
+    "host": "213.190.6.127",
+    "dialect": "mysql"
+  }
+}
