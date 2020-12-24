@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "set NODE_ENV=development&&nodemon index.js",
-    "prd": "set NODE_ENV=production&&node index.js"
+    "start": "set NODE_ENV=production&&node index.js"
   },
   "author": "Pragadeesh Raj",
   "license": "ISC",
