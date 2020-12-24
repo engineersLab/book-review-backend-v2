@@ -6,6 +6,13 @@
     "host": "localhost",
     "dialect": "mysql"
   },
+  "test": {
+    "username": "root",
+    "password": "password",
+    "database": "book_review_v2",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
   "production": {
     "username": "u225137133_booky_man",
     "password": "Bookyman@2020",

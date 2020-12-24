@@ -7,3 +7,8 @@
 {"message":"Listening to 8080","level":"info","timestamp":"2020-12-24T04:24:26.855Z"}
 {"message":"Listening to 8080","level":"info","timestamp":"2020-12-24T04:40:25.945Z"}
 {"message":"Listening to 8080","level":"info","timestamp":"2020-12-24T04:40:38.584Z"}
+{"message":"Listening to 8080","level":"info","timestamp":"2020-12-24T10:10:55.743Z"}
+{"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2020-12-24T10:11:17.554Z"}
+{"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2020-12-24T10:12:37.252Z"}
+{"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2020-12-24T10:16:24.971Z"}
+{"message":"Listening to 8080","level":"info","timestamp":"2020-12-24T10:16:47.385Z"}

@@ -8,6 +8,7 @@ const authRoute = require('./src/routes/authRoute')
 const app = express()
 app.use(bodyParser.json())
 
+
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -20,10 +21,14 @@ app.use(allowCrossDomain)
 app.use(dataRoute)
 app.use(authRoute)
 
-db.sequelize.sync().then(()=>{
+app.get('/', (req,res)=>{
+    res.send("Deployment success")
+})
+
+db.sequelize.sync().then((req)=>{
     app.listen(8080, ()=>{
         logger.info("Listening to 8080")
     })
 }).catch(err =>{
-    logger.error(err)
+    logger.error(err.message)
 })
