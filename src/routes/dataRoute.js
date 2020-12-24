@@ -71,6 +71,36 @@ router.get('/getAllGenres', (req, res)=>{
     }
 })
 
+router.post('/insertGenres', async (req,res) =>{
+    try{
+        const bookGenres = [
+            'Action and adventure', 'Alternate history', 'Anthology', 'Chick lit',
+            'Children', 'Classic', 'Comic book', 'Coming-of-age', 'Crime', 'Drama',
+            'Fairytale', 'Fantasy', 'Graphic novel', 'Historical fiction', 'Horror',
+            'Mystery', 'Paranormal romance', 'Picture book', 'Poetry', 'Political thriller',
+            'Romance', 'Satire', 'Science fiction', 'Short story', 'Suspense', 'Thriller',
+            'Western', 'Young adult',
+            'Art/architecture', 'Autobiography', 'Biography', 'Business/economics', 'Crafts/hobbies',
+            'Cookbook', 'Diary', 'Dictionary', 'Encyclopedia', 'Guide', 'Health/fitness', 'History',
+            'Home and garden', 'Humor', 'Journal', 'Math', 'Memoir', 'Philosophy', 'Prayer',
+            'Religion, spirituality, and new age', 'Textbook', 'True crime', 'Review', 'Science',
+            'Self help', 'Sports and leisure', 'Travel', 'True crime'
+    ]
+        bookGenres.forEach(async (genre)=>{
+            Genre.create({
+                genre
+            }).catch(err=>{
+                logger.error(err.message)
+                return
+            })
+            res.send("Genres Created")
+        })
+    }catch(err){
+        logger.error(err)
+        res.status(422).send({"Error":err.message})
+    }
+})
+
 router.post('/postBook', async (req, res) =>{
     try{
         const {book_name,author,genre,description,review,image_url} = req.body
