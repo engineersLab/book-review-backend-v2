@@ -26,7 +26,7 @@ app.get('/', (req,res)=>{
 })
 
 db.sequelize.sync().then((req)=>{
-    app.listen(8080, ()=>{
+    app.listen(process.env.PORT || 8080, ()=>{
         logger.info("Listening to 8080")
     })
 }).catch(err =>{
