@@ -1,4 +1,4 @@
-// const logger = require('../config/logger')
+const logger = require('../config/logger')
 const bcrypt = require('bcrypt')
 
 module.exports = (sequelize, DataTypes) =>{
@@ -24,20 +24,20 @@ module.exports = (sequelize, DataTypes) =>{
     },{
         freezeTableName: true,
         hooks:{
-            beforeCreate: (user,options)=>{
-                return bcrypt.hash(user.password, 10)
+            beforeCreate: async (user)=>{
+                return await bcrypt.hash(user.password, 10)
                     .then(hash => {
                         user.password = hash;
                     })
                     .catch(err => { 
                         console.log(err)
-                        // logger.error(err) 
+                        logger.error(err) 
                     })                
             }
         }
     })
-    User.prototype.validPassword = function(password,hash){
-        return bcrypt.compare(password, hash);
+    User.prototype.validPassword = async function(password,hash){
+        return await bcrypt.compare(password, hash);
     }
     return User
 }

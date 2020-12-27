@@ -12,3 +12,8 @@
 {"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2020-12-24T10:12:37.252Z"}
 {"name":"SequelizeConnectionError","parent":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"original":{"errorno":"ETIMEDOUT","code":"ETIMEDOUT","syscall":"connect","fatal":true},"level":"error","timestamp":"2020-12-24T10:16:24.971Z"}
 {"message":"Listening to 8080","level":"info","timestamp":"2020-12-24T10:16:47.385Z"}
+{"message":"Listening to 8080","level":"info","timestamp":"2020-12-24T13:38:46.548Z"}
+{"message":"Listening to 8080","level":"info","timestamp":"2020-12-24T13:39:13.383Z"}
+{"message":"Listening to 8080","level":"info","timestamp":"2020-12-27T05:59:00.512Z"}
+{"message":"email must be unique","level":"error","timestamp":"2020-12-27T06:00:24.103Z"}
+{"message":"Cannot set headers after they are sent to the client","level":"error","timestamp":"2020-12-27T06:00:24.106Z"}

@@ -3,9 +3,9 @@ const router =  express.Router()
 const logger = require('../../config/logger')
 const {Book, Genre} = require('../../models')
 
-router.post('/getBooks',  (req,res) =>{
+router.post('/getBooks',  async (req,res) =>{
     try{
-        Book.findAll({
+        await Book.findAll({
             order:[['id','DESC']],
         }).then(result=>{
             res.send({result})
@@ -19,9 +19,9 @@ router.post('/getBooks',  (req,res) =>{
     }
 })
 
-router.get('/getGenres', (req, res)=>{
+router.get('/getGenres', async (req, res)=>{
     try{
-        Book.findAll({
+        await Book.findAll({
             attributes:['id','genre','book_name','image_url'],
             order:[['genre']],
             group:['genre']
@@ -37,9 +37,9 @@ router.get('/getGenres', (req, res)=>{
     }
 })
 
-router.get('/getAuthors', (req, res)=>{
+router.get('/getAuthors', async (req, res)=>{
     try{
-        Book.findAll({
+        await Book.findAll({
             attributes:['id','author','book_name','image_url'],
             order:[['author']],
             group:['author']
@@ -55,9 +55,9 @@ router.get('/getAuthors', (req, res)=>{
     }
 })
 
-router.get('/getAllGenres', (req, res)=>{
+router.get('/getAllGenres', async (req, res)=>{
     try{
-        Genre.findAll({
+        await Genre.findAll({
             attributes:['id','genre']
         }).then(result =>{
             res.send({result})
@@ -71,7 +71,7 @@ router.get('/getAllGenres', (req, res)=>{
     }
 })
 
-router.post('/insertGenres', async (req,res) =>{
+router.post('/insertGenres', (req,res) =>{
     try{
         const bookGenres = [
             'Action and adventure', 'Alternate history', 'Anthology', 'Chick lit',
@@ -87,7 +87,7 @@ router.post('/insertGenres', async (req,res) =>{
             'Self help', 'Sports and leisure', 'Travel', 'True crime'
     ]
         bookGenres.forEach(async (genre)=>{
-            Genre.create({
+            await Genre.create({
                 genre
             }).catch(err=>{
                 logger.error(err.message)
@@ -124,12 +124,12 @@ router.post('/postBook', async (req, res) =>{
 router.post('/getComments', async(req, res)=>{
     try{
         const {id} = req.body
-        Book.findOne({where:{id:id}})
+        await Book.findOne({where:{id:id}})
         .then(values=>{
             if(values.comments != null){
-                res.send({result:values.comments})
+                return res.send({result:values.comments})
             }else{
-                res.send({result:"No comments yet"})
+                return res.send({result:"No comments yet"})
             }
         }).catch(err =>{
             res.send({Error:err.message})
@@ -139,12 +139,11 @@ router.post('/getComments', async(req, res)=>{
     }
 })
 
-router.post('/postComment', async(req, res)=>{
+router.post('/postComment', async (req, res)=>{
     try{
         const {id, email, username, comment} = req.body
         await Book.findOne({where:{id:id}})
             .then(book =>{
-                console.log(book.dataValues.comments)
                 var comments = book.dataValues.comments
                 if(comments == null){
                     comments = []
